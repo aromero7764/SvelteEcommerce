@@ -1,8 +1,9 @@
 <script>
 import { Router, Link, Route } from "svelte-routing";
+import ProductDetail from "./components/ProductDetail/ProductDetail.svelte";
 import About from "./Pages/About.svelte";
 import Home from "./Pages/Home.svelte";
-import Users from "./Pages/Users.svelte";
+    
 
 </script>
 
@@ -12,10 +13,9 @@ import Users from "./Pages/Users.svelte";
       <Home></Home>
   </Route>
 
-  <Route path='/Users'>
-    <Users></Users>
+  <Route path="/product/:id"  let:params={id}  component={ProductDetail}>
+    
 </Route>
-
 
 <Route path='/About'>
   <About></About>
