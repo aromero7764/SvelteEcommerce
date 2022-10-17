@@ -1,0 +1,80 @@
+:root{
+    --color-primary: #C360D3;
+    --color-primary-gradient: linear-gradient(90deg,  #C360D3 0%, #F63190 100%);
+    --color-primary-gradient-inverted: linear-gradient(90deg,  #F63190 0%, #C360D3 100%);
+    --color-secundary: #F63190;
+    --color-black: #130e14;
+    --color-light-hover: #D0D1CD;
+    --color-mid-grey: #9d9d9d;
+    --color-dark-grey: #423b43;
+    --color-warning: #f6d231;
+    --color-yellow: #f6d231;
+    --color-greyDarker: #130e14;
+    --color-grey: #605961;
+    --color-lightGrey: #D0D1CD;
+    --color-lightMidGrey: #9d9d9d;
+    --color-extralightGrey: #d6d6d6;
+    --color-darkGrey: #130e14;
+    --color-error: #f62c65;
+    --color-danger: #f62c65;
+    --color-info: #F63190;
+    --color-link: #6624ff;
+    --color-blue: #411cf8;
+    --color-success: #58db8c;
+    --color-green: #58db8c;
+    --font-family: "Montserrat", "Calibri", sans-serif !important;
+    --size-header-bar: 3.25rem;
+    --margin-top-header: 3.593rem;
+    --min-height-row: 468px;
+    --max-width-row: 70vw;
+}
+
+*,p,h1,h2,h3,h4,h5,h6,span {
+    font-family: var(--font-family);
+}
+
+
+
+
+/* font-wight statements */
+.fw100{font-weight: 100 !important;}
+.fw200{font-weight: 200 !important;}
+.fw300{font-weight: 300 !important;}
+.fw400{font-weight: 400 !important;}
+.fw500{font-weight: 500 !important;}
+.fw600{font-weight: 600 !important;}
+.fw700{font-weight: 700 !important;}
+.fw800{font-weight: 800 !important;}
+.fw900{font-weight: 900 !important;}
+
+.gap-1 {  gap: 3rem !important; }
+.gap-2 {  gap: 2.875rem !important; }
+.gap-3 {  gap: 2.625rem !important; }
+.gap-4 {  gap: 2.5rem !important; }
+.gap-5 {  gap: 2.375rem !important; }
+.gap-6 {  gap: 2.25rem !important; }
+.gap-7 {  gap: 2.125rem !important; }
+.gap-8 {  gap: 2rem !important; }
+.gap-9 {  gap: 1.875rem !important; }
+.gap-10{  gap: 1.75rem !important; }
+.gap-11{  gap: 1.625rem !important; }
+.gap-12{  gap: 1.5rem !important; }
+.gap-13{  gap: 1.25rem !important; }
+.gap-14{  gap: 1.125rem !important; }
+.gap-15{  gap: 1rem !important; }
+.gap-16{  gap: 0.875rem !important; }
+.gap-17{  gap: 0.75rem !important; }
+.gap-18{  gap: 0.5rem !important; }
+.gap-19{  gap: 0.25rem !important; }
+
+
+.gap-alt-1{gap: 2.813rem !important}
+.gap-alt-2{gap: 2.5rem !important}
+.gap-alt-3{gap: 2.188rem !important}
+.gap-alt-4{gap: 1.875rem !important}
+.gap-alt-5{gap: 1.563rem !important}
+.gap-alt-6{gap: 1.25rem !important}
+.gap-alt-7{gap: 0.938rem !important}
+.gap-alt-8{gap: 0.625rem !important}
+.gap-alt-9{gap: 0.313rem !important}
+.gapless{gap: 0rem !important}

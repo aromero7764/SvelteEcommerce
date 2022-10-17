@@ -1,0 +1,9 @@
+p{
+    color: blue;
+    &.span{
+        background:#333;
+        &.texto{
+            background:#333;
+        }
+    }
+}

@@ -1,0 +1,80 @@
+
+@charset "utf-8";
+
+// Set your brand colors
+$primary: #C360D3;
+$info:  #F63190;
+$yellow: #f6d231;
+$light-grey: #D0D1CD;
+$lighter: #d6d6d6;
+$mid-grey: #9d9d9d;
+$mid-dark-grey: #423b43;
+$normal-grey: #605961;
+$dark-grey: #130e14;
+$green: #58db8c;
+$beige-light: #415b76;
+$beige-lighter: #f5f8fa;
+$link: #6624ff;
+$red: #f62c65;
+$white: #ffffff;
+$black-bis: #130e14;
+$switch-background: #344FFF12;
+
+// Update Bulma's global variables
+$family-sans-serif: 'Montserrat', "Calibri", "Arial", sans-serif;
+$grey: $normal-grey;
+$grey-dark: $dark-grey;
+$grey-light: $light-grey;
+$primary: $primary;
+$warning: $yellow;
+$info: $info;
+$success: $green;
+$danger: $red;
+$link: $link;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+$input-icon-active-color: #C360D3;
+$input-focus-box-shadow-color: #130e14;
+$input-focus-border-color: #C360D3;
+$input-icon-color: #C360D3;
+$input-icon-active-color: #C360D3;
+$input-focus-box-shadow-size: 0 0 0 0em;
+
+
+$dark: $dark-grey;
+$dark-invert: $light-grey;
+
+$light: $light-grey;
+$light-invert: $dark-grey;
+
+@import "./sass/utilities/derived-variables.sass";
+
+
+$light-grey-inverted: findColorInvert($light-grey) ;
+$mid-grey-inverted: findColorInvert($mid-grey) ;
+$mid-dark-grey-inverted: findColorInvert($mid-dark-grey) ;
+$lighter-inverted: findColorInvert($lighter) ;
+$danger-inverted: findColorInvert($lighter) ;
+
+$addColors: (
+  "light-grey":($light-grey, $light-grey-inverted),
+  "mid-grey":($mid-grey, $mid-grey-inverted),
+  "mid-dark-grey":($mid-dark-grey, $mid-dark-grey-inverted),
+  "lighter":($lighter, $lighter-inverted),
+  "error":($danger, $danger-inverted),
+);
+$colors: map-merge($colors, $addColors);
+
+
+// Update some of Bulma's component variables
+$body-background-color: $white;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+
+$slider-thumb-to-track-ratio: 3.5;
+$slider-output-width: 0.5rem;
+
+@import "./bulma.sass";
