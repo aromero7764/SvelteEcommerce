@@ -1,5 +1,3 @@
-
-
 <script>
   import { onMount } from "svelte";
   import axios from "axios";
@@ -18,7 +16,7 @@ let products = []
 
     )
 
-    console.log(products)
+    
 </script>
 
 <!-- la lista de productos me la traigo de un estado -->
