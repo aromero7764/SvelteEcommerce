@@ -3,9 +3,8 @@ import Category from "../components/Aside/Category.svelte";
 import Price from "../components/Aside/Price.svelte";
 import SearchBar from "../components/SeachBar/SearchBar.svelte";
 import { Link } from "svelte-routing";
-import Input from "../components/Input.svelte";
 import NavBaruser from "../components/NavBarUser/NavBaruser.svelte";
-import ProductsHome from "../components/ProductsHome/ProductsHome.svelte";
+import ProductsHome from "../components/ProductsHome/Products.svelte";
 
  
 

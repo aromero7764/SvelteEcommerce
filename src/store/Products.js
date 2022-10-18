@@ -11,7 +11,7 @@ const {update, subscribe} = writable({
 function Store(){
   const store = {
       subscribe: subscribe,
-      get: function(){
+      getProducts: function(){
 
           update((data)=>{
               data.isLoading = true;                
@@ -24,9 +24,6 @@ function Store(){
               update((data)=>{
                   data.products = products;
                   data.isLoading = false;
-                 
-
-                  
                   return data;
               })
           })
@@ -35,7 +32,6 @@ function Store(){
 console.log(store)
 
   return store;
-  
 }
 
 

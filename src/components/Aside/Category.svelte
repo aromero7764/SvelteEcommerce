@@ -1,37 +1,42 @@
 <script>
-  import { onMount } from "svelte";
-  import axios from "axios";
+import { onMount } from "svelte";
+import axios from "axios";
 
-let categories = []
 
-    onMount(()=> {
+let categories = [];
 
+  const setCategory = (prop) => {
+    console.log(prop);
+  };
+
+  onMount(() => {
     axios
-      .get("https://ecommerce-api-react.herokuapp.com/api/v1/products/categories")
-      .then((res) => { categories = res.data.data.categories || []   ;
-
+      .get(
+        "https://ecommerce-api-react.herokuapp.com/api/v1/products/categories"
+      )
+      .then((res) => {
+        categories = res.data.data.categories || [];
       })
       .catch((err) => console.log(err.response));
-  }
+  });
 
-    )
+  console.log(categories);
 
-    console.log(categories)
 </script>
 
 <div>
-  <p class="menu-label">
-      Category
-  </p>
+  <p class="menu-label">Category</p>
   <ul class="menu-list">
     {#await categories}
-    <strong>Loading....</strong>
-   {:then categori}
-   {#each categories as {name}}
-   <li><a href={null}>{name}</a></li>
-
+      <strong>Loading....</strong>
+    {:then categories}
+      {#each categories as category}
+        <li>
+          <a on:click={() => setCategory(category.id)} href={null}
+            >{category.name}</a
+          >
+        </li>
       {/each}
- 
-      {/await}
+    {/await}
   </ul>
 </div>
