@@ -1,22 +1,14 @@
 <script>
-  import { onMount } from "svelte";
-  import axios from "axios";
+import { products } from "./../../store/Products.js";
 
-let products = []
+products.get();
 
-    onMount(()=> {
+$: {
+    if($products.isLoading === false){
+        console.log("$products")
+    }
+}
 
-    axios
-      .get("https://ecommerce-api-react.herokuapp.com/api/v1/products")
-      .then((res) => { products = res.data.data.products || [] ;
-
-      })
-      .catch((err) => console.log(err.response));
-  }
-
-    )
-
-    
 </script>
 
 <!-- la lista de productos me la traigo de un estado -->
@@ -24,10 +16,15 @@ let products = []
   <!-- aqui va un map -->
   <!--   products.map(product => ( -->
 
-  {#await products}
-  <strong>Loading....</strong>
+  {#if $products.isLoading === false}
+
+  {#each $products.products as product}
+  
+
+<!--   {#await products}
+  
  {:then products}
- {#each products as {title, price, productImgs, category}}
+ {#each products as {title, price, productImgs, category}} -->
 
  <div class="column is-4">
  <div>
@@ -38,14 +35,14 @@ let products = []
        on:click={() => alert("navigate(/product/${product.id}")}
      >
        <figure class="image">
-         <img class="imageP" src={productImgs[0]} alt="imag-products" />
+         <img class="imageP" src={product.productImgs[0]} alt="imag-products" />
        </figure>
      </div>
 
      <div class="card-content">
        <div class="media-content">
-         <p class="title is-4">{title}</p>
-         <p class="subtitle is-6">{price}</p>
+         <p class="title is-4">{product.title}</p>
+         <p class="subtitle is-6">{product.price}</p>
        </div>
        <div>
          <footer class="card-footer">
@@ -57,7 +54,7 @@ let products = []
             
           
 
-           <span class="tag">{category.name}</span>
+           <span class="tag">{product.category.name}</span>
     
          </div>
        </div>
@@ -71,10 +68,10 @@ let products = []
 </div>
 
    
- {/each}
- 
-{/await}
+{/each}
 
+  {/if}
+  
 
 </div>
 

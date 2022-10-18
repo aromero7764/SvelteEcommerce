@@ -1,11 +1,43 @@
+import { writable } from "svelte/store";
 import axios from 'axios';
-import { promisable } from 'svelte-promisable-stores';
- 
 
-const fetchProducts = () => 
-  axios
-    .get("https://ecommerce-api-react.herokuapp.com/api/v1/products")
-    .then((res) => res.data.data.products)
-    .catch((err) => console.log(err.response));
 
-    export let currentProducts ;
+const {update, subscribe} = writable({
+  isLoading: false,
+  products: [],
+});
+
+
+function Store(){
+  const store = {
+      subscribe: subscribe,
+      get: function(){
+
+          update((data)=>{
+              data.isLoading = true;                
+              return data;
+          })
+
+          axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/products')
+          .then(res => res.data.data.products)
+          .then((products)=>{
+              update((data)=>{
+                  data.products = products;
+                  data.isLoading = false;
+                 
+
+                  
+                  return data;
+              })
+          })
+      }
+  };
+console.log(store)
+
+  return store;
+  
+}
+
+
+const products = Store();
+export {products}
