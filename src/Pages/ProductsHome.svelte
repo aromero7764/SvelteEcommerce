@@ -3,10 +3,15 @@
     export let title;
     export let price;
     export let category;
+
+
+
 </script>
 
 <div class="column is-4">
+  
     <div>
+      
       <div class="card">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div

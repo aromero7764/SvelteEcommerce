@@ -1,13 +1,17 @@
 <script>
 import { onMount } from "svelte";
 import axios from "axios";
+import {selectedCategoryId } from "../../store/selectedCategoryId"
+
+/* enecesito para este varlo al store */
+let categoryId
+
+
+
 
 
 let categories = [];
 
-  const setCategory = (prop) => {
-    console.log(prop);
-  };
 
   onMount(() => {
     axios
@@ -20,7 +24,10 @@ let categories = [];
       .catch((err) => console.log(err.response));
   });
 
-  console.log(categories);
+  function selectCategory(value, nameId) {
+    const newCategory = {id: value, name: nameId}
+    selectedCategoryId.set(newCategory);
+}
 
 </script>
 
@@ -30,10 +37,10 @@ let categories = [];
     {#await categories}
       <strong>Loading....</strong>
     {:then categories}
-      {#each categories as category}
+      {#each categories as {id, name}}
         <li>
-          <a on:click={() => setCategory(category.id)} href={null}
-            >{category.name}</a
+          <a on:click={() => selectCategory(id, name)} 
+                href={null}>{name}</a
           >
         </li>
       {/each}

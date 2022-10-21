@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 const {update, subscribe} = writable({
-  isLoading: false,
+  isLoading: true,
   products: [],
 });
 
@@ -29,7 +29,7 @@ function Store(){
           })
       }
   };
-console.log(store)
+
 
   return store;
 }

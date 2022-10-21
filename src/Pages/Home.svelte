@@ -6,7 +6,8 @@ import { Link } from "svelte-routing";
 import NavBaruser from "../components/NavBarUser/NavBaruser.svelte";
 import ProductsHome from "../components/ProductsHome/Products.svelte";
 
- 
+
+
 
 </script>
 
