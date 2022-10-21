@@ -1,6 +1,5 @@
 <script>
-// @ts-nocheck
-
+    import { selectedCategoryId } from '../../store/selectedCategoryId.js';
     import {filterPrice} from '../../store/filterPrice.js'
 
 let min
@@ -13,6 +12,10 @@ let inputField2;
        filterPrice.set(minMaxValues);
        inputField1.value = '';
 	   inputField2.value = '';
+       if(selectedCategoryId) {
+        selectedCategoryId.set({id: "", name: ""});
+       }
+       
        
         
     }

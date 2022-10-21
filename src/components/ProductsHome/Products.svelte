@@ -8,52 +8,78 @@
 $:console.log($filterPrice)
 $:console.log($products)
 
+let productsSelected 
+/* Declaro para guardar el array de productos */
+$:{
+  if ($products.isLoading === false) {
+    productsSelected = $products.products
+  }
 
-  /* products.getProducts(); */
-  let productsSelected;
-  let categoryId;
-
-  /* products.subscribe(value => {
-  productsSelected = value
-}) */
+}
 
   products.getProducts();
 
-  /* nececito recibir selectedCategoryId del store  */
-/*   selectedCategoryId.subscribe((value) => {
-    categoryId = value;
-  }); */
+/* eliminar filtro por categorias */
+const deselectCategory = () => {
+    const reset = {id: "", name: ""}
+    selectedCategoryId.set(reset);
+    productsSelected = $products.products
+}
 
-  /* Si hay una categoria seleccionada??  */
+/* eliminar filtro por Precio */
+const deselectPrice = () => {
+    const reset = {min: 0, max: 0}
+    filterPrice.set(reset);
+    productsSelected = $products.products
+}
 
-  /* filtro por categoria */
+
+/* listo todos los productos si no hay filtro por categoria */
   $: {
-    if ($products.isLoading === false) {
-      ($selectedCategoryId.id)
-        ? (productsSelected = $products.products.filter(
-            (product) => product.category.id === $selectedCategoryId.id
-          ))
-        : (productsSelected = $products.products);
+   
+      if ($selectedCategoryId.id) {
+        /* si existe elimino el filtro por precio */
+        
+        (productsSelected = $products.products.filter(
+           (product) => product.category.id === $selectedCategoryId.id
+         ))
+         
+        
+      }/*  else {
+
+         (productsSelected = $products.products); 
+      } */
     }
     
-  }
+ 
 
-  /* filtro por precio */
+/* varifico si hay un filtro por precio y listo los productos filtrados */
   $: {
-    if ($products.isLoading === false) {
-    ($filterPrice.max) ?
-    
-      (productsSelected = $products.products.filter(
-            (product) => product.price >= $filterPrice.min && 
-            product.price <= $filterPrice.max    
+          if ($filterPrice.max) {
+            /* reseteo el filtro por categoria */
             
-          )) :
-          (productsSelected = $products.products);
-        
-    } }
+            
+            /* realizo mi consulta */
+             (productsSelected = $products.products.filter(
+                  (product) => product.price >= $filterPrice.min && 
+                  product.price <= $filterPrice.max    
+                  
+                )) 
+                
+          } /* else {
+            
+            (productsSelected = $products.products);
+          } */
 
+      } 
+
+/* tomo el valor del store search y filtro los productos que cumplan esa condicion */
   $: {
     if ($search) {
+      /* elimino filtro por precio y por producto */
+      filterPrice.set({min: 0, max: 0});
+      selectedCategoryId.set({id: "", name: ""});
+
       (productsSelected = $products.products.filter(
             (product) => {
               const title = product.title.toLowerCase()
@@ -67,20 +93,6 @@ $:console.log($products)
     }
     
   }
-
-    /* Filtro por precio */
-
-$:console.log(productsSelected)
-
-const deselectCategory = () => {
-    const reset = {id: "", name: ""}
-    selectedCategoryId.set(reset);
-}
-
-const deselectPrice = () => {
-    const reset = {min: 0, max: 0}
-    filterPrice.set(reset);
-}
 
 </script>
 

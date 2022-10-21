@@ -2,6 +2,7 @@
 import { onMount } from "svelte";
 import axios from "axios";
 import {selectedCategoryId } from "../../store/selectedCategoryId"
+import { filterPrice } from "../../store/filterPrice";
 
 /*  para este varlo al store */
 let categoryId
@@ -27,6 +28,10 @@ let categories = [];
   function selectCategory(value, nameId) {
     const newCategory = {id: value, name: nameId}
     selectedCategoryId.set(newCategory);
+    if ($filterPrice) {
+      filterPrice.set({min: 0, max: 0});
+    }
+    
 }
 
 </script>
