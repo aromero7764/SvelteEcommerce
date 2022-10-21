@@ -3,7 +3,7 @@ import { onMount } from "svelte";
 import axios from "axios";
 import {selectedCategoryId } from "../../store/selectedCategoryId"
 
-/* enecesito para este varlo al store */
+/*  para este varlo al store */
 let categoryId
 
 

@@ -1,5 +1,25 @@
+<script>
+// @ts-nocheck
 
+    import {filterPrice} from '../../store/filterPrice.js'
 
+let min
+let max
+let inputField1;
+let inputField2;
+
+    const filterValues = () => {
+       const minMaxValues = {min: min, max: max}
+       filterPrice.set(minMaxValues);
+       inputField1.value = '';
+	   inputField2.value = '';
+       
+        
+    }
+
+   
+
+</script>
 
  <div>
   <p class="menu-label">
@@ -15,14 +35,13 @@
           <div class="field-body">
               <div class="field">
                   <p class="control has-icons-left">
-                      <input class="input" type="number" placeholder="Amount" />
+                      <input class="input" type="number" placeholder="Amount" bind:value={min}
+                      bind:this={inputField1} />
                       <span class="icon is-small is-left">
                           <i class="fa-solid fa-dollar-sign"></i>
                       </span>
                   </p>
-                  <p class="help is-danger">
-                      This field is required
-                  </p>
+                  
               </div>
           </div>
       </div>
@@ -35,14 +54,13 @@
           <div class="field-body">
               <div class="field">
                   <p class="control has-icons-left">
-                      <input class="input" type="number" placeholder="Amount" />
+                      <input class="input" type="number" placeholder="Amount" bind:value={max} 
+                      bind:this={inputField2}/>
                       <span class="icon is-small is-left">
                           <i class="fa-solid fa-dollar-sign"></i>
                       </span>
                   </p>
-                  <p class="help is-danger">
-                      This field is required
-                  </p>
+                  
               </div>
           </div>
       </div>
@@ -54,7 +72,7 @@
           <div class="field-body">
               <div class="field">
                   <div class="control">
-                      <button class="button is-primary">
+                      <button on:click={ filterValues } class="button is-primary">
                           Filter Price
                       </button>
                   </div>

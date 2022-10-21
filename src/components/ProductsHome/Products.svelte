@@ -3,8 +3,11 @@
   import { products } from "../../store/Products.js";
   import { selectedCategoryId } from "../../store/selectedCategoryId";
   import {search} from '../../store/search'
+  import {filterPrice} from '../../store/filterPrice.js'
 
-$:console.log($search)
+$:console.log($filterPrice)
+$:console.log($products)
+
 
   /* products.getProducts(); */
   let productsSelected;
@@ -35,7 +38,20 @@ $:console.log($search)
     
   }
 
-  /* buscador */
+  /* filtro por precio */
+  $: {
+    if ($products.isLoading === false) {
+    ($filterPrice.max) ?
+    
+      (productsSelected = $products.products.filter(
+            (product) => product.price >= $filterPrice.min && 
+            product.price <= $filterPrice.max    
+            
+          )) :
+          (productsSelected = $products.products);
+        
+    } }
+
   $: {
     if ($search) {
       (productsSelected = $products.products.filter(
@@ -61,6 +77,11 @@ const deselectCategory = () => {
     selectedCategoryId.set(reset);
 }
 
+const deselectPrice = () => {
+    const reset = {min: 0, max: 0}
+    filterPrice.set(reset);
+}
+
 </script>
 
 <!-- la lista de productos me la traigo de un estado -->
@@ -69,6 +90,17 @@ const deselectCategory = () => {
 <span class="tag is-medium">
   {$selectedCategoryId.name}
   <button on:click={deselectCategory} class="delete is-small"></button>
+</span>
+</div>
+{/if}
+
+<!-- filtro por precio -->
+{#if ($filterPrice.max) }
+   
+<div class="mb-3">
+<span class="tag is-medium">
+  Price {$filterPrice.min} to {$filterPrice.max}
+  <button on:click={deselectPrice} class="delete is-small"></button>
 </span>
 </div>
 {/if}
