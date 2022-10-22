@@ -9,11 +9,13 @@ import Home from "./Pages/Home.svelte";
 
 <Router>
 
+
+
   <Route path='/'>
       <Home></Home>
   </Route>
 
-  <Route path="/product/:id"  let:params={id}  component={ProductDetail}>
+  <Route path="/product/:id2"  let:params={id2}   component={ProductDetail}>
     
 </Route>
 

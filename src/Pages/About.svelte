@@ -1,25 +1,13 @@
-<script>
-  import { counter } from "./../store/counter.js";
+<!-- <script>
+
   import { movies } from "./../store/movies.js";
   import { products } from "./../store/Products.js";
 
 
-
-  products.axios();
-
 let myCounter = 0
 let myMovies = []
 
-const setCounter = () => {
-  counter.set(8)
-}
 
-const updateCounter = ()=> {
-  counter.update((valueCounter) => valueCounter +1 ) }
-
-counter.subscribe(valueCounter =>{
-  myCounter = valueCounter
-})
 
 const updateMovies = () => {
   $movies = [...$movies, {"nombre": "Alberto", "apellido": "romero"}]
@@ -46,7 +34,7 @@ $: {
  <h1>
   Movies
  </h1>
+ -->
+<!--  <button on:click={()=> updateMovies()}>Update Movies</button>
 
- <button on:click={()=> updateMovies()}>Update Movies</button>
-
- <p>{JSON.stringify(myMovies)}</p>
+ <p>{JSON.stringify(myMovies)}</p> -->

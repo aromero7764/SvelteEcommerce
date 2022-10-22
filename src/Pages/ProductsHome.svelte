@@ -3,6 +3,8 @@
     export let title;
     export let price;
     export let category;
+    export let id;
+    import { navigate } from "svelte-routing";
 
 
 
@@ -16,7 +18,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
           class="card-image is-clickable"
-          on:click={() => alert("navigate(/product/${product.id}")}
+          on:click={() => navigate(`/product/${id}`)}
         >
           <figure class="image">
             <img class="imageP" src={productImgs[0]} alt="imag-products" />

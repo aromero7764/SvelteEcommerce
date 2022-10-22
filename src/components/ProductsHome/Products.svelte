@@ -5,9 +5,6 @@
   import {search} from '../../store/search'
   import {filterPrice} from '../../store/filterPrice.js'
 
-$:console.log($filterPrice)
-$:console.log($products)
-
 let productsSelected 
 /* Declaro para guardar el array de productos */
 $:{
@@ -120,8 +117,8 @@ const deselectPrice = () => {
 <div class="columns is-multiline">
   
   {#if $products.isLoading === false}
-    {#each productsSelected as { title, price, productImgs, category }}
-      <ProductsHome {title} {price} {productImgs} {category}  />
+    {#each productsSelected as { title, price, productImgs, category, id }}
+      <ProductsHome {title} {price} {productImgs} {category} {id}   />
     {/each}
   {/if}
 </div>
