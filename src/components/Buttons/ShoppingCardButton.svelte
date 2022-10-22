@@ -1,15 +1,26 @@
 <script>
+// @ts-nocheck
 import '@creativebulma/bulma-badge/dist/bulma-badge.css'
 import 'bulma-extensions/bulma-quickview/dist/css/bulma-quickview.min.css'
 import bulmaQuickview from 'bulma-extensions/bulma-quickview/dist/js/bulma-quickview.js'
 import { onMount } from 'svelte';
+import Cart from '../Cart/Cart.svelte';
+import Login from '../Login/Login.svelte';
+import { cartList } from "../../store/CartList.js";
+  import GotToLogin from '../Login/GotToLogin.svelte';
 
 onMount(() => {
     bulmaQuickview.attach()
 })
 
+cartList.getProductsCart()
+let itemsInCart = []
 
+const token = localStorage.getItem('token');
 
+$: {if (token) 
+    itemsInCart = $cartList.productsCart
+}
 
 
 </script>
@@ -24,12 +35,12 @@ onMount(() => {
 
               <div class="quickview-body">
                   <div class="quickview-block">
-                <!--       {
-                            (token) ? <Cart /> :
-                            <Login text={"Login to See your Shoping Cart"} style={true}/>  
-                            
-                            }
- -->
+                 {#if (token)}
+                    <Cart />
+                    {:else}
+                        <GotToLogin />
+                 {/if}
+                      
                   </div>
               </div>
 
@@ -40,8 +51,11 @@ onMount(() => {
 
           <a href={null} class="button  is-primary mr-3" data-show="quickview" data-target="quickviewDefault">
                           <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
-                              <span title="Badge top right" class="badge">8</span>
-                               My Cart
+                         {#if (token) }
+                         <span title="Badge top right" class="badge">{itemsInCart.length}</span>
+                         {/if}
+
+                              <span>My Cart</span> 
                           </a>  
 
       </div>

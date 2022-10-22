@@ -1,9 +1,22 @@
 <script>
   import 'bulma/bulma.sass'
+  import { navigate } from 'svelte-routing';
   import PurchasesButton from '../Buttons/PurchasesButton.svelte';
   import ShoppingCardButton from '../Buttons/ShoppingCardButton.svelte';
+  
+
 
 let isActive = false
+
+const token = localStorage.getItem('token');
+
+
+
+const logout = ()=> {
+        localStorage.setItem("token", "");
+        /* navigate("/", { replace: true }) */
+    }
+
 
 </script>
 
@@ -24,13 +37,26 @@ let isActive = false
       <a href="/" class="navbar-item">
       <span  class="icon"> <i class="fa-solid fa-house"></i></span>
  <span> Home</span></a>
+{#if (!token)}
 
-      <a  href={null}  on:click={()=> alert("estoy en login")} class="navbar-item">
-      <span  class="icon"> <i class="fa-solid fa-right-to-bracket"></i></span>
- <span> Login</span></a>
-      <a href={null} class="navbar-item">
-<PurchasesButton />
-      </a>
+<a  href={null}  on:click={()=> navigate("/login")} class="navbar-item">
+  <span  class="icon"> <i class="fa-solid fa-user"></i></span>
+<span> Login</span></a>
+
+{:else}
+<a  href="/" on:click={logout} class="navbar-item">
+  <span  class="icon"> <i class="fa-solid fa-right-to-bracket"></i></span>
+<span> Logout </span></a>
+
+<a href={null} class="navbar-item">
+  <PurchasesButton />
+        </a>
+
+{/if}
+      
+
+
+      
      
 
       <a href={null} class="navbar-item">
