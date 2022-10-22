@@ -5,16 +5,22 @@ import { cartList } from "../../store/CartList.js";
 cartList.getProductsCart();
 
 let allCartList
+let TotalSumItemsInCart
 
 $:{
   if ($cartList.isLoadinCart === false) {
     allCartList = $allCartList
+
+    TotalSumItemsInCart = 
+    $cartList.productsCart.reduce( (acumulador, producto) => 
+                        acumulador + (producto.productsInCart.quantity * producto.price) , 0)
   }
 
 }
 
 
-$: console.log($cartList.productsCart)
+
+$: console.log(TotalSumItemsInCart)
 
   
 </script>
@@ -22,7 +28,7 @@ $: console.log($cartList.productsCart)
 <aside>
 
   <div class="box" id="cart">
-      <h1 class="title is-4 mb-2">este es un h1</h1>
+ <!--      <h1 class="title is-4 mb-2">este es un h1</h1> -->
 
           <div class="cart-table" >
 
@@ -32,7 +38,6 @@ $: console.log($cartList.productsCart)
                           <span class="icon">
                               <i class="fas fa-arrow-left">
                               </i></span>
-
                       </a>
                   </div>
 
@@ -44,12 +49,29 @@ $: console.log($cartList.productsCart)
                   </div>
 
               </div>
+            {#if $cartList.isLoadinCart == true}
+                 Loading...
+
+                {:else}
+                     
+             {#each $cartList.productsCart as {
+                title, 
+                price, 
+                id , 
+                productsInCart,   } }
+
+                 <CartListProducts {title} {price} {id} {productsInCart}/> 
               
-              <!-- <CartListProducts /> -->
+                 {/each} 
+
+            {/if}
+              
+              
+             
 
               <div class="columns is-hidden-mobile">
                   <div class="column is-6 is-offset-6 has-text-right">
-                      <p > Subtotal: <span class="is-size-4"> <!-- ${TotalSumItemsInCart} -->.00 </span>
+                      <p > Subtotal: <span class="is-size-4">${TotalSumItemsInCart}.00 </span>
                           <br />
                           <em >Shipping &amp; taxes calculated at checkout</em></p>
                       <br />
@@ -60,7 +82,7 @@ $: console.log($cartList.productsCart)
 
               <div class="columns is-hidden-tablet">
                   <div class="column is-hidden-tablet">
-                      <p> Subtotal: <span class="is-size-4"> <!-- ${TotalSumItemsInCart} -->.00</span>
+                      <p> Subtotal: <span class="is-size-4"> ${TotalSumItemsInCart}.00</span>
                           <br />
                           <em >Shipping &amp; taxes calculated at checkout</em></p>
                       <br />

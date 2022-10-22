@@ -1,5 +1,26 @@
 
+<script>
+    import { cartList } from "../../store/CartList.js";
+    export let title
+    export let price
+    export let id
+    export let productsInCart
 
+
+
+    const updateCart = (qty, id) => {
+        const updateNew = {
+                id: id,
+                newQuantity: qty, 
+            }
+            console.log(updateNew)
+/* aqui despacho updateNew al store */
+}
+
+
+
+
+</script>
 
 
 
@@ -11,15 +32,15 @@
       <div class="columns">
           <div class="column is-5 is-size-6">
               <p class="mb-1">
-                  <strong> {item.title}</strong>
+                  <strong> {title}</strong>
               </p>
               <div class="mb-1">
               <div class="is-size-6">
-            <p>Price: $ {item.price}</p>
+            <p>Price: $ {price}</p>
           </div>
               </div>
               <div>
-                  <button onClick={()=> updateCart(0, item.id)} class="button is-small">
+                  <button on:click={()=> updateCart(0, id)} class="button is-small">
                       <span><i class="fa-regular fa-trash-can"></i></span>
                   </button>
               </div>
@@ -28,18 +49,18 @@
           <div class="column is-4 has-text-centered">
               <div class="line-item-quantity-control field has-addons">
                   
-                  <p onClick={()=> updateCart((item.productsInCart.quantity - 1), item.id)} 
+                  <p on:click={updateCart((productsInCart.quantity - 1), id)} 
                       class="control">
-                          <a class="button is-small"> - </a></p>
+                          <a href={null} class="button is-small"> - </a></p>
                   
                   <div class="control">
-                      <p class="input has-text-centered is-small"> {item.productsInCart.quantity} </p> </div>
+                      <p class="input has-text-centered is-small"> {productsInCart.quantity} </p> </div>
                   
-                  <p onClick={()=> updateCart((item.productsInCart.quantity + 1), item.id)} 
-                          class="control"><a class="button is-small">+</a></p>
+                  <p on:click={updateCart((productsInCart.quantity + 1), id)} 
+                          class="control"><a href={null} class="button is-small">+</a></p>
               </div>
           </div>
-          <div class="column is-3 has-text-right">${item.productsInCart.quantity * item.price}.00 </div>
+          <div class="column is-3 has-text-right">${productsInCart.quantity * price}.00 </div>
 
       </div>
 
@@ -49,19 +70,19 @@
       <div class="columns is-mobile">
           <div class="column">
               <a href="/" class="mb-1">
-                  <strong>{item.title}</strong></a>
-              <div class="mb-1">Price:  $ {item.price}</div>
+                  <strong>{title}</strong></a>
+              <div class="mb-1">Price:  $ {price}</div>
 
               <div class="line-item-quantity-control field has-addons">
                   <p class="control">
-                      <a onClick={()=> updateCart((item.productsInCart.quantity - 1), item.id)} class="button"> - </a>
+                      <a href={null} on:keydown={()=> updateCart((productsInCart.quantity - 1), id)} class="button"> - </a>
                   </p>
                   <div class="control">
-                      <p class="input has-text-centered"> {item.productsInCart.quantity} </p>
+                      <p class="input has-text-centered"> {productsInCart.quantity} </p>
                   </div>
                   <p class="control">
 
-                      <a onClick={()=> updateCart((item.productsInCart.quantity + 1), item.id)} class="button"> + </a>
+                      <a href={null} on:click={()=> updateCart((productsInCart.quantity + 1), id)} class="button"> + </a>
                   </p>
               </div>
           </div>
