@@ -4,6 +4,7 @@
     export let price;
     export let category;
     export let id;
+    export let addCart;
     import { navigate } from "svelte-routing";
 
 
@@ -41,7 +42,7 @@
             </div>
           </div>
           <button
-            on:click={() => alert("addCart(1, product.id))")}
+            on:click={() => addCart(1, id)}
             class="button is-danger">Add to cart</button
           >
         </div>

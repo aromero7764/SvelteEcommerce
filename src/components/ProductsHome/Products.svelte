@@ -4,8 +4,14 @@
   import { selectedCategoryId } from "../../store/selectedCategoryId";
   import {search} from '../../store/search'
   import {filterPrice} from '../../store/filterPrice.js'
+  import { navigate } from "svelte-routing";
+  import { cartList } from "../../store/CartList";
+  import { SvelteToast, toast } from '@zerodevx/svelte-toast'
+  import CartListProducts from "../Cart/CartListProducts.svelte";
+  
 
-let productsSelected 
+let productsSelected
+const token = localStorage.getItem('token');
 /* Declaro para guardar el array de productos */
 $:{
   if ($products.isLoading === false) {
@@ -91,6 +97,22 @@ const deselectPrice = () => {
     
   }
 
+  const addCart = (qty, id) => {
+    const addNew = {
+            id: id,
+            quantity: qty
+        }     
+         if (!token) {
+            alert("please login to add products to your cart")
+            navigate("/login")
+        
+         } else {
+          
+          cartList.AddProductToCart(addNew)
+         }
+    }
+
+
 </script>
 
 <!-- la lista de productos me la traigo de un estado -->
@@ -118,7 +140,7 @@ const deselectPrice = () => {
   
   {#if $products.isLoading === false}
     {#each productsSelected as { title, price, productImgs, category, id }}
-      <ProductsHome {title} {price} {productImgs} {category} {id}   />
+      <ProductsHome {title} {price} {productImgs} {category} {id} {addCart}  />
     {/each}
   {/if}
 </div>

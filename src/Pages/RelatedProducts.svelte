@@ -1,7 +1,11 @@
 <script>
+
+
+
     export let productImgs;
     export let title;
     export let price;
+
 
 
 </script>

@@ -1,40 +1,24 @@
-<!-- <script>
+<script>
 
-  import { movies } from "./../store/movies.js";
-  import { products } from "./../store/Products.js";
-
-
-let myCounter = 0
-let myMovies = []
+import { cartList } from "./../store/CartList.js";
+cartList.getProductsCart()
 
 
+const saludar = (id, qty) => {
+  const updateNew = {
+                id: id,
+                newQuantity: qty, 
+            }
 
-const updateMovies = () => {
-  $movies = [...$movies, {"nombre": "Alberto", "apellido": "romero"}]
-}
-
-movies.subscribe(valueMovies => {
-  myMovies = valueMovies
-})
-
-
-$: {
-    if($products.isLoading === false){
-        console.log($products)
-    }
-}
-
-  </script>
-  
- <h1>contador {myCounter}</h1>
- <button on:click={()=> setCounter()} class="button">click counter</button>
+  cartList.updateProductCart(updateNew)
  
- <button on:click={()=> updateCounter()} class="button">Update</button>
+}
 
- <h1>
-  Movies
- </h1>
- -->
-<!--  <button on:click={()=> updateMovies()}>Update Movies</button>
+$: console.log($cartList.isLoadinCart)
 
- <p>{JSON.stringify(myMovies)}</p> -->
+
+</script>
+
+
+<button on:click={() => saludar(1, 3)}>Ejecutar hola mundo</button>
+

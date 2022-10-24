@@ -13,8 +13,8 @@
                 id: id,
                 newQuantity: qty, 
             }
-            console.log(updateNew)
-/* aqui despacho updateNew al store */
+            
+    cartList.updateProductCart(updateNew)
 }
 
 
@@ -49,14 +49,16 @@
           <div class="column is-4 has-text-centered">
               <div class="line-item-quantity-control field has-addons">
                   
-                  <p on:click={updateCart((productsInCart.quantity - 1), id)} 
+                  <!-- svelte-ignore a11y-click-events-have-key-events -->
+                  <p on:click={()=> updateCart((productsInCart.quantity - 1), id)} 
                       class="control">
                           <a href={null} class="button is-small"> - </a></p>
                   
                   <div class="control">
                       <p class="input has-text-centered is-small"> {productsInCart.quantity} </p> </div>
                   
-                  <p on:click={updateCart((productsInCart.quantity + 1), id)} 
+                  <!-- svelte-ignore a11y-click-events-have-key-events -->
+                  <p on:click={()=> updateCart((productsInCart.quantity + 1), id)} 
                           class="control"><a href={null} class="button is-small">+</a></p>
               </div>
           </div>
