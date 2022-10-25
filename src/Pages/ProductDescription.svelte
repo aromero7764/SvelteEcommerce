@@ -4,6 +4,23 @@
   export let price;
   export let description;
   export let productImgs;
+  export let addCart;
+  export let id;
+  import Carousel from '../assets/Carousel.svelte'
+ let count = 1
+  
+
+const sumCount = () => {
+  count ++
+}
+
+const restCount = () => {
+  if (count <= 1) return
+  
+    count --
+
+}
+
 </script>
 
 
@@ -24,12 +41,20 @@
 
       <div class="columns">
         <div class="column is-6">
-          <div class="figure">
-            <img
-              class="imgProducts"
-              src={productImgs[0]}
-              alt="foto del producto"
-            />
+          <div class="figure siema">
+            <Carousel autoplay="4000">
+            {#each productImgs as img}
+            <div class="slider">
+                    <img
+                      class="imgProducts"
+                      src={img}
+                      alt="foto del producto"
+                    />
+            </div>
+            {/each}
+            <span class="control1" slot="left-control"><i class="fa-solid fa-angles-left"></i></span>
+	          <span class="control1" slot="right-control"><i class="fa-solid fa-angles-right"></i></span>
+          </Carousel>
           </div>
         </div>
         <div class="column">
@@ -43,11 +68,12 @@
                   <div class="product-quantity">
                     <div class="heading">Quantity</div>
                     <div class="addContainer is-flex">
-                      <button class="button"
+                      <button on:click={restCount} class="button"
                         ><i class="fa-solid fa-minus" /></button
                       >
-                      <span class="px-2"> <p class="title">1</p> </span>
-                      <button class="button"
+                      <span class="px-2"> <input class="input" type="number" 
+                        bind:value={count} min=1></span>
+                      <button on:click={sumCount} class="button"
                         ><i class="fa-solid fa-plus" /></button
                       >
                     </div>
@@ -58,7 +84,7 @@
             </div>
             <hr />
           </div>
-          <button class="button is-danger is-fullwidth">Add to cart</button>
+          <button on:click={addCart(count, id)} class="button is-danger is-fullwidth">Add to cart</button>
           <hr />
 
           <div><p>{description}</p></div>
@@ -114,4 +140,22 @@
     max-width: 640px;
     max-height: 640px;
   }
+
+  .control1 {
+  font-size: 17px;
+}
+
+.input {
+  width: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+input[type=number] { -moz-appearance:textfield; }
+
+
+
 </style>

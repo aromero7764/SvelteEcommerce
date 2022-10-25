@@ -22,7 +22,12 @@ const logout = ()=> {
 
 <nav class="navbar is-primary has-shadow is-fixed-top" aria-label="main navigation">
   <div class="navbar-brand">
-      <a class='title has-text-white' href="/">E-commerce</a>
+    <a class="navbar-item" href="/">
+      <img src="https://i.ibb.co/gJrmpq4/online-shop.png" alt="ECOMERCE"  height="28" >
+      <span class="subtitle ml-1">e-COMMERCE</span> 
+    </a>
+
+    
 
       <a on:click={() => isActive = !isActive} href={null} role="button" class="navbar-burger" aria-label="menu">
           <span aria-hidden="true"></span>
@@ -48,9 +53,9 @@ const logout = ()=> {
   <span  class="icon"> <i class="fa-solid fa-right-to-bracket"></i></span>
 <span> Logout </span></a>
 
-<a href={null} class="navbar-item">
+
   <PurchasesButton />
-        </a>
+        
 
 {/if}
       
@@ -59,11 +64,23 @@ const logout = ()=> {
       
      
 
-      <a href={null} class="navbar-item">
+  <a href={null} class="navbar-item bdg">
  <ShoppingCardButton />
-      </a>
+    </a>    
       
 
       </div>
   </div>
 </nav>
+
+<style>
+  .bdg {
+    display: inline-flex;
+  }
+
+  .subtitle{
+      color: white;
+      font-weight: 600;
+      
+  }
+</style>

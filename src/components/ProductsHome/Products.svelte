@@ -6,8 +6,9 @@
   import {filterPrice} from '../../store/filterPrice.js'
   import { navigate } from "svelte-routing";
   import { cartList } from "../../store/CartList";
-  import { SvelteToast, toast } from '@zerodevx/svelte-toast'
-  import CartListProducts from "../Cart/CartListProducts.svelte";
+
+
+
   
 
 let productsSelected
@@ -21,6 +22,7 @@ $:{
 }
 
   products.getProducts();
+ /*  cartList.getProductsCart(); */
 
 /* eliminar filtro por categorias */
 const deselectCategory = () => {

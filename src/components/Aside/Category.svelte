@@ -37,7 +37,7 @@ let categories = [];
 </script>
 
 <div>
-  <p class="menu-label">Category</p>
+  <p class="menu-label mt-1">Category</p>
   <ul class="menu-list">
     {#await categories}
       <strong>Loading....</strong>

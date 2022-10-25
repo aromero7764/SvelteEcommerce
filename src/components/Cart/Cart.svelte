@@ -1,9 +1,11 @@
 <script>
 import CartListProducts from "./CartListProducts.svelte";
 import { cartList } from "../../store/CartList.js";
+import { navigate } from "svelte-routing";
+  import CartIsEmpty from "./CartIsEmpty.svelte";
 
-cartList.getProductsCart();
-
+/* cartList.getProductsCart(); */
+export let ishidden
 let allCartList
 let TotalSumItemsInCart
 
@@ -19,15 +21,17 @@ $:{
 }
 
 
-
-$: console.log(TotalSumItemsInCart)
-
   
 </script>
 
 <aside>
 
-  <div class="box" id="cart">
+    {#if $cartList.productsCart.length === 0}
+         <CartIsEmpty />
+    {:else}
+         <!-- else content here -->
+         
+         <div class="box" id="cart">
  <!--      <h1 class="title is-4 mb-2">este es un h1</h1> -->
 
           <div class="cart-table" >
@@ -75,7 +79,7 @@ $: console.log(TotalSumItemsInCart)
                           <br />
                           <em >Shipping &amp; taxes calculated at checkout</em></p>
                       <br />
-                      <button class={`button is-medium is-danger`}>Checkout</button>
+                      <button on:click={()=> navigate("/purchases")} class={`button is-medium is-danger ${(ishidden) && "is-hidden"}`}>Checkout</button>
 
                   </div>
               </div>
@@ -86,7 +90,7 @@ $: console.log(TotalSumItemsInCart)
                           <br />
                           <em >Shipping &amp; taxes calculated at checkout</em></p>
                       <br />
-                      <button class={`button is-medium is-fullwidth mb-4 is-danger`}>Checkout</button>
+                      <button class={`button is-medium is-fullwidth mb-4 is-danger ${(ishidden) && "is-hidden"}` }>Checkout</button>
                       <a href="/" class="button is-medium is-fullwidth is-outlined">
                           <span class="icon"><i class="fas fa-arrow-left">
                           </i></span>
@@ -97,4 +101,7 @@ $: console.log(TotalSumItemsInCart)
           </div>
 
   </div>
+    {/if}
+
+
 </aside>

@@ -6,7 +6,7 @@ import getConfig from "./../utils/getConfig";
 
 
 const {update, subscribe} = writable({
-  isLoadinCart: true,
+  isLoadinCart: false,
   productsCart: [],
   errormessage: ""
 });
@@ -64,6 +64,24 @@ function Store() {
        .then(() => cartList.getProductsCart())
        .catch((error) => console.log(error.response.data.message) )
        
+     },
+
+     deleteProductsToCart: function(datos) {
+
+      axios
+      .post(
+        "https://ecommerce-api-react.herokuapp.com/api/v1/purchases",
+        datos,
+        getConfig()
+      )
+      .then (() => {
+        update((data) => {
+          data.productsCart = [];
+          return data;
+        })
+      })
+      .catch((error) => console.log(error.response.data.message) )
+      
      }
 
   }

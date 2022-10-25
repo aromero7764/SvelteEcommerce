@@ -24,7 +24,8 @@ let inputField2;
 
 </script>
 
- <div>
+ <div class="mt-6">
+    
   <p class="menu-label">
       Price
   </p>
@@ -33,12 +34,12 @@ let inputField2;
       <div class="field is-horizontal">
           <div class="field-label is-normal">
               <!-- svelte-ignore a11y-label-has-associated-control -->
-              <label class="label">From</label>
+              <label for="from" class="label">From</label>
           </div>
           <div class="field-body">
               <div class="field">
                   <p class="control has-icons-left">
-                      <input class="input" type="number" placeholder="Amount" bind:value={min}
+                      <input id="from" class="input" type="number" placeholder="Amount" bind:value={min}
                       bind:this={inputField1} />
                       <span class="icon is-small is-left">
                           <i class="fa-solid fa-dollar-sign"></i>
@@ -52,13 +53,13 @@ let inputField2;
       <div class="field is-horizontal">
           <div class="field-label is-normal">
               <!-- svelte-ignore a11y-label-has-associated-control -->
-              <label class="label">To</label>
+              <label for="to" class="label">To</label>
           </div>
           <div class="field-body">
               <div class="field">
                   <p class="control has-icons-left">
-                      <input class="input" type="number" placeholder="Amount" bind:value={max} 
-                      bind:this={inputField2}/>
+                      <input id="to" class="input" type="number" placeholder="Amount" bind:value={max} 
+                      bind:this={inputField2} />
                       <span class="icon is-small is-left">
                           <i class="fa-solid fa-dollar-sign"></i>
                       </span>

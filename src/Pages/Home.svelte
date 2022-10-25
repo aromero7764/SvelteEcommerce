@@ -8,7 +8,6 @@ import ProductsHome from "../components/ProductsHome/Products.svelte";
 
 
 
-
 </script>
 
 <div>

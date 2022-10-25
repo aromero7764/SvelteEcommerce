@@ -1,7 +1,7 @@
 
 
-<button on:click={()=> alert("presione navigate to purchases")} class="button is-primary">
+<a href={null} on:click={()=> alert("presione navigate to purchases")} class="navbar-item is-primary">
   <span  class="icon"> <i class="fa-solid fa-store"> </i></span>
- <span> Purchases</span>
+ <span>My Purchases</span>
                      
-                  </button>
+</a>
