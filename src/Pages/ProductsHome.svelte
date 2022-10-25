@@ -23,15 +23,15 @@
       
       <div class="card">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <div class="card-image is-clickable"
-          on:click={() => navigate(`/product/${id}`)} >
+        <a href={`/product/${id}`} class="card-image is-clickable"
+           >
           <figure id="cf" class="image cf">
             <!-- svelte-ignore a11y-mouse-events-have-key-events -->
             <img class="imageP top" src={productImgs[0]} alt="imag-products"
             on:mouseover={handleMouseOver} on:mouseout={handleMouseOut}/>
            
           </figure>
-        </div>
+        </a>
    
         <div class="card-content">
           <div class="media-content mb-1">

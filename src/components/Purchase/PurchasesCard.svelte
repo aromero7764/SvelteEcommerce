@@ -50,12 +50,12 @@
           
               <div class="field is-horizontal">
                   <div class="field-label is-normal">
-                      <label class="label">Contact Info</label>
+                      <label for="contact" class="label">Contact Info</label>
                   </div>
                   <div class="field-body">
                       <div class="field">
                           <p class="control is-expanded has-icons-left">
-                              <input class="input" type="text" placeholder="Name" />
+                              <input id="contact" class="input" type="text" placeholder="Name" />
                               
                               <span class="icon is-small is-left">
                                   <i class="fas fa-user"></i>
@@ -78,12 +78,12 @@
 
               <div class="field is-horizontal">
                   <div class="field-label is-normal">
-                      <label class="label">Street</label>
+                      <label for="Street" class="label">Street</label>
                   </div>
                   <div class="field-body">
                       <div class="field">
                           <div class="control">
-                              <input class="input is-danger" type="text" placeholder="e.g. Barranca"
+                              <input id="Street" class="input is-danger" type="text" placeholder="e.g. Barranca"
                               bind:value={street}/>
                           </div>
                           <p class="help is-danger">
@@ -95,12 +95,12 @@
 
               <div class="field is-horizontal">
                   <div class="field-label is-normal">
-                      <label class="label">Colony</label>
+                      <label for="Colony" class="label">Colony</label>
                   </div>
                   <div class="field-body">
                       <div class="field">
                           <div class="control">
-                              <input class="input is-danger" type="text" placeholder="e.g. Ciudadela"
+                              <input id="Colony" class="input is-danger" type="text" placeholder="e.g. Ciudadela"
                               bind:value={colony} />
                           </div>
                           <p class="help is-danger">
@@ -112,12 +112,12 @@
 
               <div class="field is-horizontal">
                   <div class="field-label is-normal">
-                      <label class="label"></label>
+                      <label for="zipCode" class="label"></label>
                   </div>
                   <div class="field-body">
                       <div class="field">
                           <p class="control is-expanded has-icons-left">
-                              <input class="input" type="number" placeholder="Zip Code"
+                              <input id="zipCode" class="input" type="number" placeholder="Zip Code"
                               bind:value={zipCode}
                               />
                               
@@ -141,12 +141,12 @@
 
               <div class="field is-horizontal">
                   <div class="field-label is-normal">
-                      <label class="label">Reference</label>
+                      <label for="Reference" class="label">Reference</label>
                   </div>
                   <div class="field-body">
                       <div class="field">
                           <div class="control">
-                              <textarea class="textarea" placeholder="Explain how we may go to your direction"
+                              <textarea id="Reference" class="textarea" placeholder="Explain how we may go to your direction"
                               bind:value={references}></textarea>
                           </div>
                       </div>

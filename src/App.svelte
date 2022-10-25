@@ -3,6 +3,7 @@ import { Router, Link, Route } from "svelte-routing";
 import Login from "./components/Login/Login.svelte";
 import ProductDetail from "./components/ProductDetail/ProductDetail.svelte";
   import PurchasesCard from "./components/Purchase/PurchasesCard.svelte";
+  import PurchasesHistoy from "./components/Purchase/PurchasesHistoy.svelte";
 import About from "./Pages/About.svelte";
 import Home from "./Pages/Home.svelte";
     
@@ -24,6 +25,10 @@ import Home from "./Pages/Home.svelte";
 
   <Route path="/login" component={Login}>
 
+  </Route>
+
+  <Route  path="/purchaseshistory">
+    <PurchasesHistoy />
   </Route>
 
 <Route path='/About'>

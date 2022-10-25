@@ -4,7 +4,6 @@ import LogoutButton from "./LogoutButton.svelte";
 import axios from "axios";
 import { navigate } from "svelte-routing";
 
-export let text
 export let style
 
 let email
@@ -51,19 +50,19 @@ const handleSubmit = (email, password) => {
           
       </div>
       <div class="message-body">
-          Plase:
+          Plase use this:
           <br /> 
-          <b> User:</b> john@gmail.com
-          <b> Pass:</b> john1234
+          <b> User:</b> test2020@test.com
+          <b> Pass:</b> 123456
           <br />
           
           
 
       </div>
   </article>
-                          <label  class="label">Email</label>
+                          <label for="email"  class="label">Email</label>
                           <div class="control has-icons-left">
-                              <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" required
+                              <input id="email" type="email" placeholder="e.g. bobsmith@gmail.com" class="input" required
                               bind:value={email} 
                               bind:this={inputField1}/>
                               
@@ -73,9 +72,9 @@ const handleSubmit = (email, password) => {
                           </div>
                       </div>
                       <div class="field">
-                          <label class="label">Password</label>
+                          <label for="pass" class="label">Password</label>
                           <div class="control has-icons-left">
-                              <input type="password" placeholder="*******" class="input" required
+                              <input id="pass" type="password" placeholder="*******" class="input" required
                               bind:value={password} 
                               bind:this={inputField2}/>
 
@@ -85,8 +84,8 @@ const handleSubmit = (email, password) => {
                           </div>
                       </div>
                       <div class="field">
-                          <label  class="checkbox">
-                              <input type="checkbox"/>
+                          <label for="check"  class="checkbox">
+                              <input id="check" type="checkbox"/>
                                   Remember me
                           </label>
                       </div>
