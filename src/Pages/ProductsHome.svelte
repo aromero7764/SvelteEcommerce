@@ -23,7 +23,7 @@
       
       <div class="card">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <a href={`/product/${id}`} class="card-image is-clickable"
+        <a href={null} on:click={navigate(`/product/${id}`)} class="card-image is-clickable"
            >
           <figure id="cf" class="image cf">
             <!-- svelte-ignore a11y-mouse-events-have-key-events -->
