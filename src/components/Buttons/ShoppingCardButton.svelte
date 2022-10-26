@@ -7,7 +7,9 @@ import { onMount } from 'svelte';
 import Cart from '../Cart/Cart.svelte';
 import Login from '../Login/Login.svelte';
 import { cartList } from "../../store/CartList.js";
-  import GotToLogin from '../Login/GotToLogin.svelte';
+import GotToLogin from '../Login/GotToLogin.svelte';
+  import LogoutButton from '../Login/LogoutButton.svelte';
+
 
 onMount(() => {
     bulmaQuickview.attach()
@@ -26,18 +28,21 @@ $: {if (token)
 </script>
 
 
-        <div>
+        
           <div id="quickviewDefault" class="quickview">
               <header class="quickview-header">
                   <p class="title"><i class="fa-solid fa-cart-arrow-down"></i></p>
+                <!-- cierra el quickview -->
                   <span class="delete" data-dismiss="quickview"></span>
               </header>
 
               <div class="quickview-body">
                   <div class="quickview-block">
                  {#if (token)}
+                 
                     <Cart />
                     {:else}
+                    
                         <GotToLogin />
                  {/if}
                       
@@ -49,23 +54,28 @@ $: {if (token)
               </footer>
           </div>
 
-          <div href={null} class="is-primary mr-3" data-show="quickview" data-target="quickviewDefault">
+          <a href={null} class="is-primary mr-3 navbar-item" data-show="quickview" data-target="quickviewDefault">
            
-            <div>
+            
                 <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
                 {#if (itemsInCart.length >= 1) }
                 <span title="Badge top right" class="badge">{itemsInCart.length}</span>
                 {/if}
             <span>My Cart</span> 
-            </div>
-          </div>   
+           
+        </a>   
 
-      </div>
+   
 
       <style>
 .badge {
     transform: translate(-60%, 61%);
 }
 
+.quickview {
+
+    z-index: 10;
+
+}
 
       </style>

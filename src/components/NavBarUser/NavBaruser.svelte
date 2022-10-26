@@ -64,9 +64,9 @@ const logout = ()=> {
       
      
 
-  <a href={null} class="navbar-item bdg">
- <ShoppingCardButton />
-    </a>    
+<!--   <div href={null} class="navbar-item bdg"> -->
+ <ShoppingCardButton  />
+<!--   </div>  -->   
       
 
       </div>
