@@ -90,7 +90,7 @@ $:{
                           <br />
                           <em >Shipping &amp; taxes calculated at checkout</em></p>
                       <br />
-                      <button class={`button is-medium is-fullwidth mb-4 is-danger ${(ishidden) && "is-hidden"}` }>Checkout</button>
+                      <button on:click={()=> navigate("/purchases")} class={`button is-medium is-fullwidth mb-4 is-danger ${(ishidden) && "is-hidden"}` }>Checkout</button>
                       <a href="/" class="button is-medium is-fullwidth is-outlined">
                           <span class="icon"><i class="fas fa-arrow-left">
                           </i></span>
