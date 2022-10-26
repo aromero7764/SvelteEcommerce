@@ -1,5 +1,5 @@
 <script>
-  import {link} from 'svelte-routing'
+  import {link, navigate} from 'svelte-routing'
 </script>
 <div class="empty-cart">
 
@@ -54,7 +54,7 @@
       <path d="M736,577 C737.65825,577 739,578.34175 739,580 C739,578.34175 740.34175,577 742,577 C740.34175,577 739,575.65825 739,574 C739,575.65825 737.65825,577 736,577 Z" id="bubble-rounded" stroke="#3CBC83" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
   </svg>
 
-  <a href="/login" class="button is-primary">Login</a>
+  <a on:click={()=> navigate("/login") } href={null} class="button is-primary">Login</a>
 
   <h3 class="has-text-primary is-size-6 mt-2">Please login to see your shoping cart </h3>
   
