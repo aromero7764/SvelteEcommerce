@@ -18,7 +18,7 @@ function Store(){
               return data;
           })
 
-          axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/${id}`)
+          axios.get(`https://e-commerce-api.academlo.tech/api/v1/products/${id}`)
           .then(res => res.data.data.product)
           .then((products)=>{
               update((data)=>{

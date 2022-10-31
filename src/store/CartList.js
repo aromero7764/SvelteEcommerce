@@ -22,7 +22,7 @@ function Store() {
         return data;
       }) */
 
-      axios.get("https://ecommerce-api-react.herokuapp.com/api/v1/cart", getConfig())
+      axios.get("https://e-commerce-api.academlo.tech/api/v1/cart", getConfig())
         .then( res => res.data.data.cart.products)
         .then ((items) => {
           update((data) => {
@@ -45,7 +45,7 @@ function Store() {
 
       axios
       .patch(
-        "https://ecommerce-api-react.herokuapp.com/api/v1/cart",
+        "https://e-commerce-api.academlo.tech/api/v1/cart",
         updateNew,
         getConfig()
       )
@@ -57,7 +57,7 @@ function Store() {
     AddProductToCart: function(addNew) {
        axios
        .post(
-         "https://ecommerce-api-react.herokuapp.com/api/v1/cart",
+         "https://e-commerce-api.academlo.tech/api/v1/cart",
          addNew,
          getConfig()
        )
@@ -70,7 +70,7 @@ function Store() {
 
       axios
       .post(
-        "https://ecommerce-api-react.herokuapp.com/api/v1/purchases",
+        "https://e-commerce-api.academlo.tech/api/v1/purchases",
         datos,
         getConfig()
       )

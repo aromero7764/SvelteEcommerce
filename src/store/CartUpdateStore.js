@@ -13,7 +13,7 @@ const getCartList = () => {
   loading.set(true)
   error.set(false)
 
-  axios.get("https://ecommerce-api-react.herokuapp.com/api/v1/cart", getConfig())
+  axios.get("https://e-commerce-api.academlo.tech/api/v1/cart", getConfig())
        .then((res) => data.set (res.data.data.cart.products))
        .catch((e) => error.set(e.response))
 

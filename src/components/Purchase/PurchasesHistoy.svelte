@@ -19,7 +19,7 @@
 
       axios
         .get(
-          "https://ecommerce-api-react.herokuapp.com/api/v1/purchases",
+          "https://e-commerce-api.academlo.tech/api/v1/purchases",
           getConfig()
         )
         .then((res) => (alldata = res.data.data.purchases))
