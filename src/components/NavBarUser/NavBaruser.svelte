@@ -24,7 +24,7 @@ const logout = ()=> {
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
       <img src="https://i.ibb.co/gJrmpq4/online-shop.png" alt="ECOMERCE"  height="28" >
-      <span class="subtitle ml-1">e-COMMERCE</span> 
+      <span class="subtitle ml-1">EZ Electric Shop</span> 
     </a>
 
     

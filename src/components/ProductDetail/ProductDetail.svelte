@@ -12,8 +12,8 @@
   export let id2;
   let newItem
   let RelateItems = [];
-  products.getProducts();
-  productDetail.getDetailProduct(id2);
+  $:products.getProducts();
+  $:productDetail.getDetailProduct(id2);
 
   /*  destructure desde el store */
   $: ({ title, price, description, productImgs, category, id } =

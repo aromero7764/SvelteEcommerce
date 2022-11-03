@@ -5,7 +5,7 @@
     export let category;
     export let id;
     export let addCart;
-    import { navigate } from "svelte-routing";
+    import { navigate, Link } from "svelte-routing";
 
     function handleMouseOver(e) {
         e.target.src = productImgs[1]
