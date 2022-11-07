@@ -59,7 +59,7 @@ const restCount = () => {
         </div>
         <div class="column">
           <h1 class="is-size-2">{title}</h1>
-          <h2 class="is-size-3"><span>{price}</span></h2>
+          <h2 class="is-size-3"><span>${price}</span></h2>
           <hr />
           <div>
             <div class="field mb-2">
@@ -122,7 +122,7 @@ const restCount = () => {
       </div>
 
        
-      <h1 class="title">Related Products</h1>
+      <h1 class="title mb-3">Related Products</h1>
      
 
 </div>
@@ -139,6 +139,7 @@ const restCount = () => {
   .imgProducts {
     max-width: 640px;
     max-height: 640px;
+
   }
 
   .control1 {

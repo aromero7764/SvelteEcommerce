@@ -35,7 +35,7 @@
    
         <div class="card-content">
           <div class="media-content mb-1">
-            <h2 class="title is-5 titleproduct">{title}</h2>
+            <h2 class="title is-5 titleproduct">{title} </h2>
             <p class="subtitle is-6 has-text-right">${price}</p>
           </div>
        
@@ -64,20 +64,21 @@
    
    <style>
     .imageP {
-      display: block;
-      max-height: 200px;
-      object-fit: contain;
-      max-width: 400px;
-      margin: 0px auto;
-     
+    display: block;
+    max-height: 165px;
+    min-height: 165px;
+    min-width: 255px;
+    max-width: 255px;
+    object-fit: contain;
     }
 
   
   
     .card {
-      min-height: 335px;
-      height: 335px;
-    }
+      min-height: 312px;
+    height: 312px;
+}
+   
 
     .card {
       position: relative;
