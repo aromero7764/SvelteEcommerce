@@ -4,6 +4,7 @@ import Login from "./components/Login/Login.svelte";
 import ProductDetail from "./components/ProductDetail/ProductDetail.svelte";
   import PurchasesCard from "./components/Purchase/PurchasesCard.svelte";
   import PurchasesHistoy from "./components/Purchase/PurchasesHistoy.svelte";
+    import Payment from "./components/Stripe/Payment.svelte";
 import About from "./Pages/About.svelte";
 import Home from "./Pages/Home.svelte";
     
@@ -33,6 +34,11 @@ import Home from "./Pages/Home.svelte";
 
 <Route path='/About'>
   <About></About>
+</Route>
+
+
+<Route path='/payment'>
+  <Payment></Payment>
 </Route>
 
 
