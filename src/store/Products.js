@@ -1,39 +1,35 @@
 import { writable } from "svelte/store";
-import axios from 'axios';
+import axios from "axios";
 
-
-const {update, subscribe} = writable({
+const { update, subscribe } = writable({
   isLoading: true,
   products: [],
 });
 
-
-function Store(){
+function Store() {
   const store = {
-      subscribe: subscribe,
-      getProducts: function(){
+    subscribe: subscribe,
+    getProducts: function () {
+      update((data) => {
+        data.isLoading = true;
+        return data;
+      });
 
-          update((data)=>{
-              data.isLoading = true;                
-              return data;
-          })
-
-          axios.get('https://e-commerce-api.academlo.tech/api/v1/products')
-          .then(res => res.data.data.products)
-          .then((products)=>{
-              update((data)=>{
-                  data.products = products;
-                  data.isLoading = false;
-                  return data;
-              })
-          })
-      }
+      //axios.get('https://e-commerce-api.academlo.tech/api/v1/products')
+      fetch("https://dummyjson.com/products")
+        .then((res) => res.json())
+        .then((products) => {
+          update((data) => {
+            data.products = products.products;
+            data.isLoading = false;
+            return data;
+          });
+        });
+    },
   };
-
 
   return store;
 }
 
-
 const products = Store();
-export {products}
+export { products };

@@ -16,16 +16,18 @@
   $:productDetail.getDetailProduct(id2);
 
   /*  destructure desde el store */
-  $: ({ title, price, description, productImgs, category, id } =
-    $productDetail.productsDetail);
-
+  $: ({ title, price, description, images: productImgs, category, id } = $productDetail.productsDetail);
+  
+  
   $: {
     if ($productDetail.isLoading === false && $products.isLoading === false) {
       RelateItems = $products.products.filter(
-        (product) => product.category.name === category && product.id !== id
+        (product) => {
+          return product.category === category && product.id !== id}
       );
     
     }
+    console.log("RelateItems", RelateItems)
   }
 
 
@@ -56,8 +58,8 @@
     <div class="columns is-multiline">
 
     {#if $products.isLoading === false}
-    {#each RelateItems as { title, price, productImgs, category, id }}
-      <ProductsHome  {title} {price} {productImgs} {category} {id} {addCart}  />
+    {#each RelateItems as { title, price, images: productImgs, category, id }}
+      <ProductsHome  {title} {price} {productImgs} {category} {id} {addCart}  /> 
     {/each} 
     {/if}
    </div>

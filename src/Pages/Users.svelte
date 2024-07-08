@@ -18,7 +18,7 @@
       <strong>Loading....</strong>
      {:then $products}
      {#each $products.products as {category}}
-     <li><a href={null}>{category.name}</a></li>
+     <li><a href={null}>{category}</a></li>
   
         {/each}
    

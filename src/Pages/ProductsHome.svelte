@@ -6,13 +6,12 @@
     export let id;
     export let addCart;
     import { navigate, Link } from "svelte-routing";
-
     function handleMouseOver(e) {
-        e.target.src = productImgs[1]
+        e.target.src = productImgs?.[0]
     }
 
     function handleMouseOut (e) {
-      e.target.src = productImgs[0]
+      e.target.src = productImgs?.[0]
     }
 
 </script>
@@ -23,7 +22,7 @@
       
       <div class="card">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <a href={null} on:click={navigate(`/product/${id}`)} class="card-image is-clickable"
+        <a href={null} on:click={()=>navigate(`/product/${id}`)} class="card-image is-clickable"
            >
           <figure id="cf" class="image cf">
             <!-- svelte-ignore a11y-mouse-events-have-key-events -->
@@ -42,7 +41,7 @@
             <footer class="card-footer">
             <div class="content mt-1">
 
-               <span class="tag">{category.name}</span> 
+               <span class="tag">{category}</span> 
               <button
               on:click={() => addCart(1, id)}
               class="button is-danger">

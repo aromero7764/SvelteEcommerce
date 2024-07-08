@@ -17,16 +17,18 @@ let categories = [];
   onMount(() => {
     axios
       .get(
-        "https://e-commerce-api.academlo.tech/api/v1/products/categories"
+        //"https://e-commerce-api.academlo.tech/api/v1/products/categories"
+        "https://dummyjson.com/products/categories"
       )
       .then((res) => {
-        categories = res.data.data.categories || [];
+        //categories = res.data.data.categories || [];
+        categories = res.data || []
       })
       .catch((err) => console.log(err.response));
   });
 
-  function selectCategory(value, nameId) {
-    const newCategory = {id: value, name: nameId}
+  function selectCategory(value, nameId, slug) {
+    const newCategory = {id: value, name: nameId, slug}
     selectedCategoryId.set(newCategory);
     if ($filterPrice) {
       filterPrice.set({min: 0, max: 0});
@@ -42,9 +44,9 @@ let categories = [];
     {#await categories}
       <strong>Loading....</strong>
     {:then categories}
-      {#each categories as {id, name}}
+      {#each categories as {id, name, slug}}
         <li>
-          <a on:click={() => selectCategory(id, name)} 
+          <a on:click={() => selectCategory(id, name, slug)} 
                 href={null}>{name}</a
           >
         </li>

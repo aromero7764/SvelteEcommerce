@@ -26,7 +26,7 @@ $:{
 
 /* eliminar filtro por categorias */
 const deselectCategory = () => {
-    const reset = {id: "", name: ""}
+    const reset = {id: "", name: "", slug: ""}
     selectedCategoryId.set(reset);
     productsSelected = $products.products
 }
@@ -42,11 +42,11 @@ const deselectPrice = () => {
 /* listo todos los productos si no hay filtro por categoria */
   $: {
    
-      if ($selectedCategoryId.id) {
+      if ($selectedCategoryId.slug) {
         /* si existe elimino el filtro por precio */
         
         (productsSelected = $products.products.filter(
-           (product) => product.category.id === $selectedCategoryId.id
+           (product) => product.category === $selectedCategoryId.slug
          ))
          
         
@@ -141,7 +141,7 @@ const deselectPrice = () => {
 <div class="columns is-multiline">
   
   {#if $products.isLoading === false}
-    {#each productsSelected as { title, price, productImgs, category, id }}
+    {#each productsSelected as { title, price, images: productImgs, category, id }}
       <ProductsHome {title} {price} {productImgs} {category} {id} {addCart}  />
     {/each}
   {/if}
