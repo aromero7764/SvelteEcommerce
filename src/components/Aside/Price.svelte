@@ -20,70 +20,59 @@ let inputField2;
         
     }
 
-   /* co */
-
 </script>
 
  <div class="mt-6">
     
   <p class="menu-label">
-      Price
+      Filter Price
   </p>
   <div class="menu-list">
 
-      <div class="field is-horizontal">
-          <div class="field-label is-normal">
+      <div class="field">
+          <div class="field-label is-normal has-text-left">
               <!-- svelte-ignore a11y-label-has-associated-control -->
-              <label for="from" class="label">From</label>
+              <label for="from" class="label is-small">From</label>
           </div>
           <div class="field-body">
               <div class="field">
-                  <p class="control has-icons-left">
-                      <input id="from" class="input" type="number" placeholder="Amount" bind:value={min}
-                      bind:this={inputField1} />
+                  <div class="control is-expanded has-icons-left">
+                      <input id="from" class="input is-small" type="number" placeholder="Amount" bind:value={min}
+                      bind:this={inputField1} min="0"/>
                       <span class="icon is-small is-left">
                           <i class="fa-solid fa-dollar-sign"></i>
                       </span>
-                  </p>
+                  </div>
                   
               </div>
           </div>
       </div>
 
-      <div class="field is-horizontal">
-          <div class="field-label is-normal">
+      <div class="field">
+          <div class="field-label is-normal has-text-left">
               <!-- svelte-ignore a11y-label-has-associated-control -->
-              <label for="to" class="label">To</label>
+              <label for="to" class="label is-small">To</label>
           </div>
           <div class="field-body">
               <div class="field">
-                  <p class="control has-icons-left">
-                      <input id="to" class="input" type="number" placeholder="Amount" bind:value={max} 
-                      bind:this={inputField2} />
+                  <div class="control is-expanded has-icons-left">
+                      <input id="to" class="input is-small" type="number" placeholder="Amount" bind:value={max} 
+                      bind:this={inputField2} min="0" />
                       <span class="icon is-small is-left">
                           <i class="fa-solid fa-dollar-sign"></i>
                       </span>
-                  </p>
+                  </div>
                   
               </div>
           </div>
       </div>
 
-      <div class="field is-horizontal">
-          <div class="field-label">
-          <!--   Left empty for spacing --> 
-          </div>
-          <div class="field-body">
-              <div class="field">
-                  <div class="control">
+
                       <button on:click={ filterValues } class="button is-primary">
                           Filter Price
                       </button>
-                  </div>
-              </div>
-          </div>
-      </div>
       
+
   
   </div>
 
